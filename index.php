@@ -1,3 +1,21 @@
+<strong style="color:red">BOnjour le monde</strong>
+<table border="2">
+	<tr>
+		<td>good</td>
+		<td>good</td>
+		<td>good</td>
+	</tr>
+	<tr>
+		<td>good</td>
+		<td>good</td>
+		<td>good</td>
+	</tr>
+	<tr>
+		<td style="background-color:black">good</td>
+		<td style="background-color:black">good</td>
+		<td style="background-color:black">good</td>
+	</tr>
+</table>
 <?php 
 
 	//echo "<em>J'aime le PHP</em>";

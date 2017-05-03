@@ -3,6 +3,7 @@
 	<head>
 		<title>Bonjour le monde</title>
 		<meta charset="utf-8" />
+		<link rel="stylesheet" href="print.css" type="text/css" media="print" />
 	</head>
 	<body>
 		<h1>J'aime le PHP</h1>

@@ -36,14 +36,7 @@
 	//test3
 	
 	function milou($a) {
-		$c = array();
-		foreach ($a as $b) {
-			array_unshift($c, $b);
-			$e = array_pop($c);
-			array_push($c, $e);
-		}
-		
-		return $c;
+		return array_reverse($a);
 	}
 
 	$d = array(5,3,4,1,0,2);

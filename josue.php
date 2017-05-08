@@ -5,8 +5,8 @@
 		<meta charset="utf-8" />
 	</head>
 	<body>
-		bonjour le monde
-		<br/>
-		Hello world
+		<strong>
+		Le monde est merveilleux
+		</strong>
 	</body>
 </html>

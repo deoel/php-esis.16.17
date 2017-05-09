@@ -9,7 +9,7 @@
 		
 		<strong>Annonce 2</strong>"
 		<p>
-			Happiness is not about avoiding unhappiness<br/>
+			Happiness is not avoiding unhappiness<br/>
 		</p>
 		
 		<strong>Annonce 3</strong>"

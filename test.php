@@ -35,7 +35,7 @@
 
 	//test3
 	
-	function milou($a) {
+	/*function milou($a) {
 		return array_reverse($a);
 	}
 
@@ -46,7 +46,22 @@
 	echo "<pre>";
 	print_r($s);
 	print_r($l);
-	echo "</pre>";
+	echo "</pre>";*/
 	
+	//test5
+	function milou($a) {
+		$c = array();
+		foreach ($a as $b => $d) {
+			if($b % 2 == 0) {
+				array_unshift($c,$d);
+			}
+		}
+		return $c;
+	}
 
+	$d = array(5,3,4,1,0,2);
+	$s = milou($d); // [0,4,5]
+	echo "<pre>";
+	print_r($s);
+	echo "</pre>";
 ?>

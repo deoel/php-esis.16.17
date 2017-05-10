@@ -78,22 +78,13 @@
 	print_r($a);
 	echo '</pre>';
 	
-	//array_shif
+	//array_shift
 	$a = array(7,8,9);
 	$b = array_shift($a);
 	echo '<pre>';
 	print_r($a);
 	echo '</pre>';
 	echo '<br /> b = '.$b;
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 ?>

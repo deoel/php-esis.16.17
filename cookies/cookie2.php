@@ -10,7 +10,7 @@
 		
 			echo '<strong>Pays : </strong>'.$_COOKIE['pays'];
 			echo '<br/><strong>Like : </strong>'.$_COOKIE['like'];
-		
+			echo '<br/><strong>Ville : </strong>',$_COOKIE['ville'];
 		?>
 	</body>
 </html>

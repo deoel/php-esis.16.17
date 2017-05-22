@@ -3,8 +3,9 @@
 	session_start();
 	
 	session_destroy();
-	echo 'Vous vous êtes deconnecté avec succès';
 	
 	$_SESSION['pseudo'] = 'Dimokeur';
+	echo '<pre>'.print_r($_SESSION).'</pre>';
+	echo '<br>Vous vous êtes deconnecté avec succès';
 
 ?>

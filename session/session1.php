@@ -1,5 +1,7 @@
-
-<?php
+<?php //l'espace avant la balise php générait le
+ //"Warning: session_start() [function.session-start]: Cannot send session cache limiter 
+//- headers already sent (output started at C:\wamp\www\php-esis.16.17\Session\session1.php:2) 
+//in C:\wamp\www\php-esis.16.17\Session\session1.php on line 4"
 	
 	session_start();
 

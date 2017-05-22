@@ -49,7 +49,7 @@
 	echo "</pre>";*/
 	
 	//test5
-	function milou($a) {
+	/*function milou($a) {
 		$c = array();
 		foreach ($a as $b => $d) {
 			if($b % 2 == 0) {
@@ -63,5 +63,22 @@
 	$s = milou($d); // [0,4,5]
 	echo "<pre>";
 	print_r($s);
-	echo "</pre>";
+	echo "</pre>";*/
+	session_start();
+	
+	if(isset($_POST['age1'], $_POST['age2'], $_POST['age3'])) {
+		if(!empty($_POST['age1']) and !empty($_POST['age2']) and !empty($_POST['age2'])) {
+			$age = array();
+			$age[] = $_POST['age1'];
+			$age[] = $_POST['age2'];
+			$age[] = $_POST['age3'];
+			$s = 0;
+			foreach($age as $a)
+			{
+				$s += $a;
+			}
+			$_SESSION['ageMoyen'] = $s / count($age);
+		}
+	}		
+	
 ?>

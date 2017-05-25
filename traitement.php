@@ -18,9 +18,9 @@
 		</p>
 
 		<p>
-			<strong>Adresse : </strong> <?php echo $_POST['nom']; ?> <br />
-			<strong>Tel : </strong> <?php echo $_POST['postnom']; ?> <br />
-			<strong>Mail : </strong> <?php echo $_POST['prenom']; ?>
+			<strong>Adresse : </strong> <?php echo $_POST['adresse']; ?> <br />
+			<strong>Tel : </strong> <?php echo $_POST['tel']; ?> <br />
+			<strong>Mail : </strong> <?php echo $_POST['mail']; ?>
 		</p>
 	</body>
 </html>

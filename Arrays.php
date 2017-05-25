@@ -140,7 +140,7 @@
 	}
 	
 	foreach($r as $el){
-		echo $el;
+		echo 'valeur'.$el;
 	}
 		
 ?>

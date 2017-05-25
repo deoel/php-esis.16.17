@@ -79,6 +79,8 @@
 			}
 			$_SESSION['ageMoyen'] = $s / count($age);
 		}
-	}		
+	}
+
+	
 	
 ?>

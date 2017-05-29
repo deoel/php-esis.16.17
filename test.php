@@ -64,7 +64,7 @@
 	echo "<pre>";
 	print_r($s);
 	echo "</pre>";*/
-	session_start();
+	/*session_start();
 	
 	if(isset($_POST['age1'], $_POST['age2'], $_POST['age3'])) {
 		if(!empty($_POST['age1']) and !empty($_POST['age2']) and !empty($_POST['age2'])) {
@@ -79,8 +79,21 @@
 			}
 			$_SESSION['ageMoyen'] = $s / count($age);
 		}
-	}
+	}*/
+	/*
+	if(isset($_GET['mdp']) and !empty($_GET['mdp'])) {
+		$mdp = $_GET['mdp'];
+		if(preg_match('#^[a-zA-Z]{8,}$#',$mdp)) {
+			echo 'Good mdp';
+		} else {
+			echo 'Bad mdp';
+		}
+	}*/
 
-	
-	
+	$mdp = 'p2';
+	if(preg_match('#^[^1-2]2$#',$mdp)) {
+		echo 'Good mdp';
+	} else {
+		echo 'Bad mdp';
+	}
 ?>

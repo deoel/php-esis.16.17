@@ -9,6 +9,12 @@
 	<head>
 		<title>Présentation des étudiants</title>
 		<meta charset="utf-8" />
+		<style>
+			label {
+				display: inline-block;
+				width: 200px;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Présentation des étudiants</h1>

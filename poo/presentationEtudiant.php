@@ -18,19 +18,16 @@
 			
 			if(isset($_POST['nom'], $_POST['postnom'], $_POST['prenom'], $_POST['genre'], $_POST['dateNaissance'])) {
 				
-				$_SESSION['etudiant'][] = array('nom'=>$_POST['nom'], 
-												'postnom'=>$_POST['postnom'],
-												'prenom'=>$_POST['prenom'],
-												'genre'=>$_POST['genre'],
-												'dateNaissance'=>$_POST['dateNaissance']);
-				foreach((Array)$_SESSION['etudiant'] as $e) {
-					/*$etu1 = new Etudiant($e['nom'], $e['postnom'], $e['prenom'], $e['genre'], $e['dateNaissance']);
-					echo '<p>';
-					$etu1->presentation();
-					echo '</p>';*/
-					print_r($e);
-				}
+				$etu = new Etudiant($_POST['nom'], $_POST['postnom'],$_POST['prenom'],$_POST['genre'],$_POST['dateNaissance']);
+				$s = serialize($etu);
 				
+				$_SESSION['etudiant'][] = $s;
+				foreach($_SESSION['etudiant'] as $e) {
+					$t = unserialize($e);
+					echo '<p>';
+					$t->presentation();
+					echo '</p>';
+				}
 			}
 			
 		?>

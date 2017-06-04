@@ -96,7 +96,13 @@
 	echo 'Pourcentage de ressemblance : '.$p.'%';
 	echo '<br />';
 	
+	//str_ireplace:Cherche "Hello word", remplace word par Maurice
+	echo "<h1>str_ireplace</h1>";
+	echo str_ireplace("WORLD","Maurice","Hello world!");
 	
+	//str_split: donne les index des lettres du mot Hello
+	echo "<h1>str_split</h1>";
+	print_r(str_split("Hello"));
 	
 	
 	

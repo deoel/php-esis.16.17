@@ -30,7 +30,7 @@
 			<label for="appreciation">Appreciation :</label>
 			<textarea id="appreciation" name="appreciation" required></textarea><br />
 			<input type="submit" value="Envoyer" />
-		</form>
+		</form><hr />
 		
 		<?php 
 
@@ -64,7 +64,7 @@
 				echo '<em>Insertion réussie</em>';
 			}			
 			
-			
+			include_once('journal.php');
 		?>
 		
 	</body>

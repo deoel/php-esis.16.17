@@ -1,0 +1,30 @@
+.titre{
+	text-align: center;
+}
+th, tr, td{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 5px;
+	text-align: center;
+}
+td[colspan="4"]{
+	text-align: center;
+	font-weight: bold;
+}/*
+.nbre{
+	text-align: center;
+}*/
+
+body {
+	padding-top: 150px ;
+}
+[class *="col-"]{
+	text-align : center ;
+}
+.container{
+	padding-right : 15px ;
+	padding-left : 15px ;
+	margin-right : auto ;
+	margin-left : auto ;
+	border: 2px solid black;
+}

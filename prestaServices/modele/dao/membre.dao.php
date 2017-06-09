@@ -1,7 +1,6 @@
 <?php
 
 	require_once('connexion.dao.php');
-	require_once('../structure/membre.class.php');
 	
 	class MembreDAO {
 		private $bdd;
@@ -10,7 +9,7 @@
 		}
 		
 		function add(Membre $m) {
-			$req = $bdd->prepare('INSERT INTO membre(nomcomplet, genre,
+			$req = $this->bdd->prepare('INSERT INTO membre(nomcomplet, genre,
 			tel, email, adressephysique, competences, statut, profil, pwd)
 			VALUES(:nomcomplet, :genre, :tel, :email, :adressephysique, 
 			:competences, :statut, :profil, :pwd)');
@@ -28,7 +27,7 @@
 		}
 		
 		function change(Membre $m) {
-			$req = $bdd->prepare('UPDATE membre SET nomcomplet =:nomcomplet, 
+			$req = $this->bdd->prepare('UPDATE membre SET nomcomplet =:nomcomplet, 
 			genre = :genre, tel = :tel, email = :email, 
 			adressephysique = :adressephysique, competences = :competences, 
 			statut = :statut, profil = :profil, pwd = :pwd WHERE id = :id');
@@ -47,16 +46,16 @@
 		}
 		
 		function del($idMembre) {
-			$req = $bdd->prepare('DELETE FROM membre WHERE id = :id');
+			$req = $this->bdd->prepare('DELETE FROM membre WHERE id = :id');
 			$req->execute(array(
-				'id' => $m->getId()
+				'id' => $idMembre
 			));
 		}
 		
 		function getAllMembre() {
-			$req = $bdd->query('SELECT * FROM membre');
+			$req = $this->bdd->query('SELECT * FROM membre');
 			$tabMembre = array();
-			foreach($data = $req->fetch()) {
+			while($data = $req->fetch()) {
 				$m = new Membre($data['id'], $data['nomcomplet'], 
 				$data['genre'], $data['tel'], $data['email'], 
 				$data['adressephysique'], $data['competences'],

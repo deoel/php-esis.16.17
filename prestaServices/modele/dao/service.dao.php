@@ -1,7 +1,6 @@
 <?php
 
 	require_once('connexion.dao.php');
-	require_once('../structure/service.class.php');
 	
 	class ServiceDAO {
 		private $bdd;
@@ -10,7 +9,7 @@
 		}
 		
 		function add(Service $s) {
-			$req = $bdd->prepare('INSERT INTO service(intitule,description)
+			$req = $this->bdd->prepare('INSERT INTO service(intitule,description)
 			VALUES(:intitule, :description)');
 			$req->execute(array(
 				'intitule' => $s->getIntitule(),
@@ -19,7 +18,7 @@
 		}
 		
 		function change(Service $s) {
-			$req = $bdd->prepare('UPDATE service SET intitule = :intitule,
+			$req = $this->bdd->prepare('UPDATE service SET intitule = :intitule,
 			description = :description WHERE id = :id');
 			$req->execute(array(
 				'intitule' => $s->getIntitule(),
@@ -29,16 +28,16 @@
 		}
 		
 		function del($idService) {
-			$req = $bdd->prepare('DELETE FROM service WHERE id = :id');
+			$req = $this->bdd->prepare('DELETE FROM service WHERE id = :id');
 			$req->execute(array(
-				'id' => $s->getId()
+				'id' => $idService
 			));
 		}
 		
 		function getAllService() {
-			$req = $bdd->query('SELECT * FROM service');
+			$req = $this->bdd->query('SELECT * FROM service');
 			$tabService = array();
-			foreach($data = $req->fetch()) {
+			while($data = $req->fetch()) {
 				$s = new Service($data['id'], $data['intitule'], 
 				$data['description']);
 				$tabService[] = $s;

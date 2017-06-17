@@ -15,7 +15,6 @@
 				<a href="index.php">Home</a> |
 				<a href="membre.php">Membre</a> |
 				<a href="service.php">Services</a>
-				<a href="en/index.php">EN</a>
 			</p>
 		</header>
 	</body>

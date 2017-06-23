@@ -15,20 +15,12 @@
 				<a href="index.php">Home</a> |
 				<a href="membre.php">Membre</a> |
 				<a href="service.php">Services</a>
-				<a href="en/modif_service.php">EN</a>
 			</p>
 		</header>
 		<div>
-			<form method="post" action="../controleur/__modif_service.php">
+			<form method="post" action="../controleur/__add_service.php">
 				<fieldset>
-					<legend>Modifier le service</legend>
-					<?php
-						if(isset($_GET['id']) and !empty($_GET['id'])) {
-							echo '<input type="hidden" name="id" value="'.$_GET['id'].'">';
-						} else {
-							header('Location: index.php');
-						}
-					?>
+					<legend>Ajouter un nouveau service</legend>
 					<label for="intitule">Intitulé : </label>
 					<input type="text" name="intitule" id="intitule" required /><br />
 					<label for="description">Description : </label>
@@ -36,6 +28,13 @@
 					<input type="submit" value="Ajouter" />
 				</fieldset>
 			</form>
+		</div>
+		<div>
+			<?php 
+				
+				include_once('../controleur/__liste_service.php');
+			
+			?>
 		</div>
 	</body>
 </html>

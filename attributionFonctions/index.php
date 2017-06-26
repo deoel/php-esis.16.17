@@ -28,9 +28,14 @@
 				<?php 
 					require_once('fonction.class.php');
 					require_once('fonction.dao.php');
+					require_once('tache.class.php');
+					require_once('tache.dao.php');
 					
 					$fdao = new FonctionDAO();
 					$lf = $fdao->getAllFonction();
+					
+					$tdao = new TacheDAO();
+					$lt = $tdao->getAllTache();
 					
 					foreach($lf as $f) {
 						echo '
@@ -51,10 +56,6 @@
 				require_once('fonction.dao.php');
 				require_once('agent.class.php');
 				require_once('agent.dao.php');
-
-				require_once('tache.class.php');
-				require_once('tache.dao.php');
-				$tdao = new TacheDAO();
 				
 				$fdao = new FonctionDAO();
 				$lf = $fdao->getAllFonction();
@@ -76,6 +77,14 @@
 				';
 				$compteur = 1;
 				foreach($la as $a) {
+					
+					$nb=0;
+                    foreach($lt as $t) {
+                        if($a->getId()==$t->getIdagent()){
+                            $nb++;
+                        }
+                    }
+					
 					echo '<tr>
 							<td>'.$compteur.'</td>
 							<td>'.$a->getNom().'</td>
@@ -92,7 +101,7 @@
 							break;
 						}
 					}
-					echo '<td>'.$tdao->getTacheNbr($a->getId()).'</td>';
+					echo '<td>'.$nb.'</td>';
 					echo '<td><a href="changer_fonction.php?id='.$a->getId().'&nom='.$a->getNom().'"><img src="change.jpg" alt="change" width="30px;" /></a></td>';
 					echo '</tr>';
 					$compteur++;

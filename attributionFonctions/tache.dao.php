@@ -1,10 +1,43 @@
 <?php
+
 	require_once('connexion.dao.php');
 	
 	class TacheDAO {
 		private $bdd;
 		function __construct() {
 			$this->bdd = Connexion::getConnexion();
+		}
+		function add(Tache $t)
+		{
+			$req=$this->bdd->prepare('INSERT INTO tache(description,datedebut,datefin,idagent)
+				VALUE(:description,:datedebut,:datefin,:idagent)');
+			$req->execute(array(
+				'description'=>$t->getDescription(),
+				'datedebut'=>$t->getDatedebut(),
+				'datefin'=>$t->getDatefin(),
+				'idagent'=>$t->getIdagent()
+				));
+
+		}
+
+		function change(Tache $t)
+		{
+			$req = $this->bdd->prepare('UPDATE tache SET description = :description,datedebut = :datedebut, 
+				datefin=:datefin, idagent=:idagent WHERE id = :id');
+			$req->execute(array(
+				'description'=>$t->getDescription(),
+				'datedebut'=>$t->getDatedebut(),
+				'datefin'=>$t->getDatefin(),
+				'idagent'=>$t->getIdagent(),
+				'id' => $t->getId()
+			));
+
+		}
+		function del($idtache) {
+			$req = $this->bdd->prepare('DELETE FROM tache WHERE id = :id');
+			$req->execute(array(
+				'id' => $idtache
+			));
 		}
 		
 		function getAllTache() {
@@ -19,65 +52,36 @@
 			
 			return $tabTache;
 		}
-
-		function nombreTache($id){
-			try {
-				$req = $this->bdd->prepare('SELECT COUNT(*) FROM tache where idagent = :id');
-			} catch (Exception $e) {
-				echo $e->getMessage();
+		function getOneAgent($idagent)
+		{
+			$req = $this->bdd->query("SELECT idagent FROM tache  WHERE id = $idagent");
+			$idfind=0;
+			while($data = $req->fetch()) {
+				$idfind=$data['idagent'];
 			}
-			
-			$req->execute(array(
-				'id'=>$id
-				));
-			$result = $req->fetch()[0];
-			return $result;
-		}
+			return $idfind;
 
-		function supprimer($id){
-			try {
-				$req = $this->bdd->prepare('DELETE FROM tache where id = :id');
-			} catch (Exception $e) {
-				echo $e->getMessage();
-			}
-			
-			$req->execute(array(
-				'id'=>$id
-				));
 		}
-
-		function modifyTache($id, $description, $debut, $fin, $idagent){
-			try {
-				$req = $this->bdd->prepare('UPDATE tache SET description =:description, datedebut = :datedebut, datefin = :datefin, idagent = :idagent
-					where id = :id');
-			} catch (Exception $e) {
-				echo $e->getMessage();
-			}
-			
-			$req->execute(array(
-				'id'=>$id,
-				'description'=>$description,
-				'datedebut'=>$debut,
-				'datefin'=>$fin,
-				'idagent'=>$idagent
-				));
-		}
-
-		function add(Tache $tache){
-			try {
-				$req = $this->bdd->prepare('INSERT INTO tache (description, datedebut, datefin, idagent) VALUES
-				(:description, :datedebut, :datefin, :idagent)');
-			} catch (Exception $e) {
-				echo $e->getMessage();
-			}
-			
-			$req->execute(array(
-				'description'=>$tache->getDescription(),
-				'datedebut'=>$tache->getDatedebut(),
-				'datefin'=>$tache->getDatefin(),
-				'idagent'=>$tache->getIdagent()
-				));
-		}
+		
+		function  countFunction($id)
+        {
+            $compteur=0;
+            $req = $this->bdd->prepare('SELECT * FROM tache WHERE idagent=:id');
+            $req->execute(array(
+            	'id' =>$id, 
+            	));
+                       
+            while ($tab= $req->fetch())
+            {
+              if($tab['idagent']==$id)
+                {
+                    $compteur++;
+                }
+             } 
+            
+            
+            return $compteur;
+        }
 	}
 
 ?>

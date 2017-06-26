@@ -6,7 +6,9 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<?php include_once('head.php'); ?>
+		<?php 
+		   include_once('head.php'); 
+		?>
 		
 		<div>
 			<h2>Créer une nouvelle Fonction</h2>
@@ -60,6 +62,8 @@
 			?>
 		</div>
 		
-		<?php include_once('foot.php'); ?>
+		<?php 
+		    include_once('foot.php'); 
+		?>
 	</body>
 </html>

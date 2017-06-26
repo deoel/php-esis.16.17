@@ -6,10 +6,17 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<?php include_once('head.php'); ?>
+
+		<?php 
+		    include_once('head.php'); 
+		?>
 		
 		<div>
-			<h2>Changer la fonction de l'agent : <?php echo $_GET['nom']; ?></h2>
+			<h2>modifier la fonction de l'agent : 
+			  <?php 
+			    echo $_GET['nom']; 
+			  ?>
+			</h2>
 			<form method="post" action="__changer_fonction.php">
 				<?php
 					echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';
@@ -25,10 +32,8 @@
 					$fdao = new FonctionDAO();
 					$lf = $fdao->getAllFonction();
 					
-					foreach($lf as $f) {
-						echo '
-							<option value="'.$f->getId().'">'.$f->getIntitule().'</option>
-						';
+					 foreach($lf as $f) {
+					  echo '<option value="'.$f->getId().'">'.$f->getIntitule().'</option>';
 					}
 				
 				?>
@@ -38,6 +43,9 @@
 			</form>
 		</div>
 		
-		<?php include_once('foot.php'); ?>
+		<?php 
+		 include_once('foot.php'); 
+		?>
+		
 	</body>
 </html>

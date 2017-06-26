@@ -9,7 +9,7 @@
 		}
 		
 		function getAllAgent() {
-			$req = $this->bdd->query('SELECT * FROM agent');
+		   $req = $this->bdd->query('SELECT * FROM agent');
 			$tabAgent = array();
 			while($data = $req->fetch()) {
 				$a = new Agent($data['id'], $data['nom'], $data['genre'], $data['tel'], $data['email'], $data['idfonction']);
@@ -22,8 +22,8 @@
 		}
 		
 		function add(Agent $a) {
-			$req = $this->bdd->prepare('INSERT INTO agent(nom, genre, tel, email, idfonction) 
-									VALUES(:nom, :genre, :tel, :email, :idfonction)');
+			$req = $this->bdd->prepare('INSERT INTO agent(nom, genre, tel, email, idfonction) VALUES(:nom, :genre, :tel, :email, :idfonction)');
+
 			$req->execute(array(
 				'nom' => $a->getNom(),
 				'genre' => $a->getGenre(),

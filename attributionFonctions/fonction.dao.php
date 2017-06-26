@@ -20,6 +20,7 @@
 		function getAllFonction() {
 			$req = $this->bdd->query('SELECT * FROM fonction');
 			$tabFonction = array();
+			
 			while($data = $req->fetch()) {
 				$f = new Fonction($data['id'], $data['intitule'], $data['description']);
 				$tabFonction[] = $f;

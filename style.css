@@ -1,0 +1,68 @@
+body {
+	font-family: arial;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+header {
+	text-align: center;
+	background: #009688;
+	color: white;
+	padding: 20px;
+	font-family: consolas;
+}
+footer {
+	text-align: center;
+	background: #009688;
+	color: white;
+	padding: 20px;
+	margin-top: 100px;
+}
+header a {
+	color: yellow;
+	text-decoration: none;
+}
+header a:hover {
+	text-decoration: underline;
+}
+h1 {
+	margin: 0px;
+	margin-bottom: -50px;
+}
+h2 {
+	color: #009688;
+}
+label, input, select {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 6px;
+}
+label {
+	width: 150px;
+}
+input[type="text"],  input[type="email"],  input[type="date"], select{
+	width: 250px;
+	height: 30px;
+}
+input[type="submit"] {
+	margin-left: 155px;
+	height: 25px;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	border: 1px solid #999;
+}
+th{
+	border: 1px solid #999;
+	height: 30px;
+}
+td{
+	border: 1px dashed #999;
+	height: 30px;
+}
+.intitule {
+	width: 250px; 
+}

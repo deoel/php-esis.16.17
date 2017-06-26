@@ -33,11 +33,22 @@
 			));
 		}
 		
+		function getOneAgent($idagent)
+		{
+			$req = $this->bdd->query("SELECT nom FROM agent  WHERE id = $idagent");
+			$nomfind="";
+			while($data = $req->fetch()) {
+				$nomfind=$data['nom'];
+			}
+			return $nomfind;
+
+		}
+		
 		function getNombreAgent($idfonction) {
 			$req = $this->bdd->prepare('SELECT COUNT(*) FROM agent WHERE idfonction = :idfonction');
 			$req->execute(array('idfonction' => $idfonction));
 			
-			$resultat = $req->fetch()[0];
+			$resultat = $req->fetch();
 			return $resultat;
 		}
 	}

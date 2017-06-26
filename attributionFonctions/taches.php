@@ -1,4 +1,5 @@
-﻿<!doctype>
+﻿
+<!doctype>
 <html>
 	<head>
 		<title>Attribution des fonctions</title>
@@ -25,7 +26,8 @@
 					require_once('agent.dao.php');
 					
 					$adao = new AgentDAO();
-					$la = $adao->getAllAgent();
+					$la = $adao->getAllAgent();					
+
 					
 					foreach($la as $a) {
 						echo '

@@ -20,6 +20,42 @@
 			
 			return $tabTache;
 		}
+
+			function add(Tache $a) {
+			$req = $this->bdd->prepare('INSERT INTO tache(description, datedebut, datefin, idagent) 
+									VALUES(:description, :datedebut, :datefin, :idagent)');
+			$req->execute(array(
+				'description' => $a->getDescription(),
+				'datedebut' => $a->getDatedebut(),
+				'datefin' => $a->getDatefin(),
+				'idagent' => $a->getIdagent()
+				
+			));
+		}
+
+		function Update($id,$description,$datedebut,$datefin) {
+			$req = $this->bdd->prepare("UPDATE  tache set description= :description,datedebut= :datedebut,datefin= :datefin  where id=:id");
+			$req->execute(array(
+				'description' => $description,
+				'datedebut' => $datedebut,
+				'datefin' => $datefin,
+				'id' => $id
+			));
+		}
+
+		function Delete($id) {
+			$req = $this->bdd->prepare("DELETE FROM  tache where id=:id");
+			$req->execute(array(
+				'id' => $id
+			));
+		}
+		function getNombreTache($idfonction) {
+			$req = $this->bdd->prepare('SELECT COUNT(*) FROM tache WHERE idagent= :id');
+			$req->execute(array('id' => $idfonction));
+			
+			$resultat = $req->fetch()[0];
+			return $resultat;
+		}
 		
 	}
 

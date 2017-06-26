@@ -40,6 +40,18 @@
 			$resultat = $req->fetch()[0];
 			return $resultat;
 		}
+
+		function Update($id, $idfontion) {
+			$req = $this->bdd->prepare("UPDATE  agent set idfonction= :idfonction  where id=:id");
+			$req->execute(array(
+				'idfonction' => $idfontion,
+				'id' => $id
+			));
+		}
+
+		
+
+		
 	}
 
 ?>

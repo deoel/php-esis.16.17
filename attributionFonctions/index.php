@@ -49,6 +49,7 @@
 			<?php
 				require_once('fonction.class.php');
 				require_once('fonction.dao.php');
+				require_once('tache.dao.php');
 				require_once('agent.class.php');
 				require_once('agent.dao.php');
 				
@@ -71,6 +72,7 @@
 					</tr>
 				';
 				$compteur = 1;
+				$comt=new TacheDAO();
 				foreach($la as $a) {
 					echo '<tr>
 							<td>'.$compteur.'</td>
@@ -88,7 +90,7 @@
 							break;
 						}
 					}
-					echo '<td></td>';
+					echo '<td>'.$comt->getNbreTache($a->getId()).'</td>';
 					echo '<td><a href="changer_fonction.php?id='.$a->getId().'&nom='.$a->getNom().'"><img src="change.jpg" alt="change" width="30px;" /></a></td>';
 					echo '</tr>';
 					$compteur++;

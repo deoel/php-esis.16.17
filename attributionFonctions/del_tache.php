@@ -7,7 +7,7 @@
     $t = new Tache($_GET['id'], '', '', '', '', '');
     
     $tdao = new TacheDAO();
-    $tdao->supprimerTache($t);
+    $tdao->deleteTache($t);
     
     header('Location: taches.php');
 

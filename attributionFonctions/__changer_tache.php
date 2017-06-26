@@ -7,7 +7,7 @@
     $t = new Tache($_POST['id'], '', '', '', $_POST['idagent']);
     
     $tdao = new TacheDAO();
-    $tdao->changerTache($t);
+    $tdao->updateTache($t);
     
     header('Location: taches.php');
 

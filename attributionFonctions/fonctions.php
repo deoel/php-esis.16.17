@@ -30,6 +30,7 @@
 				$lf = $fdao->getAllFonction();
 				
 				$adao = new AgentDAO();
+				$la=$adao->getAllAgent();
 				
 				echo '<table>';
 				echo '
@@ -43,15 +44,25 @@
 					</tr>
 				';
 				$compteur = 1;
+			
 				foreach($lf as $f) {
+					$fem=0;
+					$hom=0;
+					foreach($la as $a) {
+						if($a->getGenre()=='F' and $f->getId()==$a->getIdfonction() ){
+							$fem++;
+						}if($a->getGenre()=='M' and $f->getId()==$a->getIdfonction() ){
+							$hom++;
+						}
+					}
 					echo '<tr>
 							<td>'.$compteur.'</td>
 							<td>
 								<a href="agents.php?id='.$f->getId().'">'.$f->getIntitule().'</a>
 							</td>
 							<td>'.$f->getDescription().'</td>
-							<td></td>
-							<td></td>
+							<td>'.$fem.'</td>
+							<td>'.$hom.'</td>
 							<td>'.$adao->getNombreAgent($f->getId()).'</td>
 						</tr>';
 					$compteur++;

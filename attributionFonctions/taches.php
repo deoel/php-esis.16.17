@@ -81,7 +81,7 @@
 							break;
 						}
 					}
-					echo '<td><a href="changer_tache.php?id='.$t->getId().'&description='.$t->getDescription().'"><img src="ct.png" alt="change" width="40px;" /></a></td>';
+					echo '<td><a href="changer_tache.php?id='.$t->getId().'"><img src="ct.png" alt="change" width="40px;" /></a></td>';
 					echo '<td><a href="del_tache.php?id='.$t->getId().'"><img src="dt.png" alt="change" width="30px;" /></a></td>';
 					echo '</tr>';
 					$compteur++;

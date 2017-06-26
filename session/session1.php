@@ -1,30 +1,18 @@
-<?php //l'espace avant la balise php générait le
- //"Warning: session_start() [function.session-start]: Cannot send session cache limiter 
-//- headers already sent (output started at C:\wamp\www\php-esis.16.17\Session\session1.php:2) 
-//in C:\wamp\www\php-esis.16.17\Session\session1.php on line 4"
-	
-	session_start();
-
+<?php
+    session_start();
 ?>
-
 <!doctype html>
 <html>
-	<head>
-		<title>les sessions et les cookies</title>
-		<meta charset="utf-8" />
-	</head>
-	<body>
-		<h3>Get les sessions</h3>
-		<strong>Pseudo :</strong> 
-		<?php echo $_SESSION['pseudo']; ?> 
-		<br />
-		<strong>Description :</strong> 
-		<?php echo $_SESSION['description']; ?> 
-		<br />
-		<strong>Pays :</strong> 
-			<?php 
-				echo $_SESSION['pays']; 
-			?> 
-		<br />
-	</body>
+    <head>
+        <title>Sessions 1</title>
+        <meta charset="utf-8"
+    </head>
+    <body>
+        <h2><strong>Récuperation des donneées de la sessions</strong></h2>
+        <?php
+            echo '<pre><strong>Id: </strong>',$_SESSION['Id'],'</pre>';
+            echo '<pre><strong>Username: </strong>',$_SESSION['Username'],'</pre>';
+            echo '<pre><strong>Description: </strong>',$_SESSION['Description'],'</pre>';
+        ?>
+    </body>
 </html>

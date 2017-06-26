@@ -1,38 +1,12 @@
-<!doctype>
-<html>
-	<head>
-		<title>Attribution des fonctions</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<?php include_once('head.php'); ?>
+<?php 
+	require_once('tache.dao.php');
 
-		<div>
-			
-			<?php
-				require_once('tache.class.php');
-				require_once('tache.dao.php');
+	if (isset($_GET['id']) and !empty($_GET['id'])) {
 
-				
-				$tdao = new TacheDAO();
-				
-				if(isset($_GET['id']))
-				{
-					$id = $_GET['id'];
-					
-					if($tdao->delTache($id) === true)
-					{
-						echo "<p>Tache Supprimee Avec Succes</p>";
-					}
-					else
-					{
-						echo "<p>Tache Non Trouvee</p>";
-					}
-				}
-			?>
-		</div>
-		
-		<?php include_once('foot.php'); ?>
-	</body>
-</html>
+		$tdao = new TacheDAO();
+		$tdao->supprimer($_GET['id']);
+		header('Location: taches.php');
+	}else{
+		echo 'error on page del_tache.php';
+	}
+ ?>

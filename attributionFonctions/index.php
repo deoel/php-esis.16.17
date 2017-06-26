@@ -28,7 +28,6 @@
 				<?php 
 					require_once('fonction.class.php');
 					require_once('fonction.dao.php');
-
 					
 					$fdao = new FonctionDAO();
 					$lf = $fdao->getAllFonction();
@@ -72,8 +71,6 @@
 					</tr>
 				';
 				$compteur = 1;
-				require_once ('tache.dao.php');
-				$tadao=new TacheDAO();
 				foreach($la as $a) {
 					echo '<tr>
 							<td>'.$compteur.'</td>
@@ -91,7 +88,7 @@
 							break;
 						}
 					}
-					echo '<td>'.$nb=$tadao->countFunction($a->getId()).'</td>';
+					echo '<td></td>';
 					echo '<td><a href="changer_fonction.php?id='.$a->getId().'&nom='.$a->getNom().'"><img src="change.jpg" alt="change" width="30px;" /></a></td>';
 					echo '</tr>';
 					$compteur++;

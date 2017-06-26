@@ -51,11 +51,18 @@
 				require_once('fonction.dao.php');
 				require_once('agent.class.php');
 				require_once('agent.dao.php');
+				require_once('tache.class.php');
+				require_once('tache.dao.php');
+				
+				//require_once('taches.php');
 				
 				$fdao = new FonctionDAO();
 				$lf = $fdao->getAllFonction();
 				$adao = new AgentDAO();
 				$la = $adao->getAllAgent();
+				$tdao = new TacheDAO();
+				$lt = $tdao->getAllTache();
+				
 				
 				echo '<table>';
 				echo '
@@ -72,6 +79,11 @@
 				';
 				$compteur = 1;
 				foreach($la as $a) {
+					$c=0;
+					foreach ($lt as $t) {
+						# code...
+						if($t->getIdagent()==$a->getId()){$c++;}
+					}
 					echo '<tr>
 							<td>'.$compteur.'</td>
 							<td>'.$a->getNom().'</td>
@@ -80,15 +92,16 @@
 							<td>'.$a->getEmail().'</td>
 						';
 						
-					foreach($lf as $f) {
-						if($a->getIdfonction() == $f->getId()) {
-							echo '
-								<td>'.$f->getIntitule().'</td>
-							';
-							break;
+						
+										foreach($lf as $f) {
+											if($a->getIdfonction() == $f->getId()) {
+												echo '
+														<td>'.$f->getIntitule().'</td>
+															';
+													break;
+											}
 						}
-					}
-					echo '<td></td>';
+					echo '<td>'.$c.'</td>';
 					echo '<td><a href="changer_fonction.php?id='.$a->getId().'&nom='.$a->getNom().'"><img src="change.jpg" alt="change" width="30px;" /></a></td>';
 					echo '</tr>';
 					$compteur++;

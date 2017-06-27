@@ -52,7 +52,7 @@
 							<td>'.$f->getDescription().'</td>
 							<td></td>
 							<td></td>
-							<td>'.$adao->getNombreAgent($f->getId()).'</td>
+							<td>'.$adao->getAgentByFuntion($f->getId()).'</td>
 						</tr>';
 					$compteur++;
 				}

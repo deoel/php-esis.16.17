@@ -2,8 +2,6 @@
 
 	require_once('fonction.class.php');
 	require_once('fonction.dao.php');
-				
-				
 
 	if(isset($_POST['intitule'], $_POST['description'])
 		and !empty($_POST['intitule']) and !empty($_POST['description'])) {
@@ -28,7 +26,7 @@
 		
 		
 	} else {
-		echo 'Erreur quelque part';
+		echo 'Erreur dans les données envoyées';
 	}
 
 ?>

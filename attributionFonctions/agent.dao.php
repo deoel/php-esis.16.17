@@ -33,7 +33,7 @@
 			));
 		}
 		
-		function getNombreAgent($idfonction) {
+		function getAgentByFuntion($idfonction) {
 			$req = $this->bdd->prepare('SELECT COUNT(*) FROM agent WHERE idfonction = :idfonction');
 			$req->execute(array('idfonction' => $idfonction));
 			

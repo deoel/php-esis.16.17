@@ -7,6 +7,6 @@
 		$tdao->del($_GET['id']);
 		header('Location: taches.php');
 	}else{
-		echo 'error on page del_tache.php';
+		echo 'erreur!';
 	}
  ?>

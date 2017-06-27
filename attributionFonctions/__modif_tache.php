@@ -9,6 +9,6 @@
 		$tdao->modif($_POST['id'], $_POST['description'], $_POST['datedebut'], $_POST['datefin'], $_POST['idagent']);
 		header('Location: taches.php');
 	}else{
-		echo 'error on page __modi_tache.php';
+		echo 'erreur!';
 	}
  ?>

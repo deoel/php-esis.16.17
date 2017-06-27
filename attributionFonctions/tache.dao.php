@@ -33,11 +33,7 @@
 		}
 		
 		function getNombretache($id){
-			try {
-				$req = $this->bdd->prepare('SELECT COUNT(*) FROM tache where idagent = :id');
-			} catch (Exception $e) {
-				echo $e->getMessage();
-			}
+			$req = $this->bdd->prepare('SELECT COUNT(*) FROM tache where idagent = :id');
 			
 			$req->execute(array(
 				'id'=>$id
@@ -47,11 +43,8 @@
 		}
 
 		function del($id){
-			try {
-				$req = $this->bdd->prepare('DELETE FROM tache where id = :id');
-			} catch (Exception $e) {
-				echo $e->getMessage();
-			}
+			
+			$req = $this->bdd->prepare('DELETE FROM tache where id = :id');
 			
 			$req->execute(array(
 				'id'=>$id
@@ -59,12 +52,8 @@
 		}
 
 		function modif($id, $description, $debut, $fin, $idagent){
-			try {
-				$req = $this->bdd->prepare('UPDATE tache SET description =:description, datedebut = :datedebut, datefin = :datefin, idagent = :idagent
+			$req = $this->bdd->prepare('UPDATE tache SET description =:description, datedebut = :datedebut, datefin = :datefin, idagent = :idagent
 					where id = :id');
-			} catch (Exception $e) {
-				echo $e->getMessage();
-			}
 			
 			$req->execute(array(
 				'id'=>$id,

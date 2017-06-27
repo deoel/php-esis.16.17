@@ -12,7 +12,7 @@
 		
 		
 	} else {
-		echo 'Erreur quelque part';
+		echo 'Erreur!';
 	}
 
 ?>

@@ -51,15 +51,13 @@
 				require_once('fonction.dao.php');
 				require_once('agent.class.php');
 				require_once('agent.dao.php');
-
-				require_once('tache.class.php');
 				require_once('tache.dao.php');
-				$tdao = new TacheDAO();
 				
 				$fdao = new FonctionDAO();
 				$lf = $fdao->getAllFonction();
 				$adao = new AgentDAO();
 				$la = $adao->getAllAgent();
+				$tdao = new TacheDAO();
 				
 				echo '<table>';
 				echo '
@@ -92,7 +90,7 @@
 							break;
 						}
 					}
-					echo '<td>'.$tdao->getTacheNbr($a->getId()).'</td>';
+					echo '<td>'.$tdao->nombreTache($a->getId()).'</td>';
 					echo '<td><a href="changer_fonction.php?id='.$a->getId().'&nom='.$a->getNom().'"><img src="change.jpg" alt="change" width="30px;" /></a></td>';
 					echo '</tr>';
 					$compteur++;

@@ -30,6 +30,7 @@
 				$lf = $fdao->getAllFonction();
 				
 				$adao = new AgentDAO();
+				$la = $adao->getAllAgent();
 				
 				echo '<table>';
 				echo '
@@ -50,8 +51,8 @@
 								<a href="agents.php?id='.$f->getId().'">'.$f->getIntitule().'</a>
 							</td>
 							<td>'.$f->getDescription().'</td>
-							<td></td>
-							<td></td>
+								<td>'.$adao->getNombreAgentFemme($f->getId()).'</td>
+								<td>'.$adao->getNombreAgentHomme($f->getId()).'</td>
 							<td>'.$adao->getNombreAgent($f->getId()).'</td>
 						</tr>';
 					$compteur++;

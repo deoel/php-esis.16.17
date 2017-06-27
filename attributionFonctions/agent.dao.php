@@ -40,6 +40,27 @@
 			$resultat = $req->fetch()[0];
 			return $resultat;
 		}
+		function getNombreAgentFemme($idfonction) {
+			$req = $this->bdd->prepare('SELECT COUNT(*) FROM agent WHERE idfonction = :idfonction and genre = "F"');
+			$req->execute(array('idfonction' => $idfonction));
+			
+			$resultat = $req->fetch()[0];
+			return $resultat;
+		}
+		function getNombreAgentHomme($idfonction) {
+			$req = $this->bdd->prepare('SELECT COUNT(*) FROM agent WHERE idfonction = :idfonction and genre = "M"');
+			$req->execute(array('idfonction' => $idfonction));
+			
+			$resultat = $req->fetch()[0];
+			return $resultat;
+		}
+		function change($fonctions,$ident) {
+			$req = $this->bdd->prepare('UPDATE agent SET idfonction = :idfonction WHERE id = :id');
+			$req->execute(array(
+				'idfonction' => $fonctions ,
+				'id' => $ident
+			));
+		}
 	}
 
 ?>

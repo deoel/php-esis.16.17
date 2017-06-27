@@ -21,16 +21,10 @@
 				{
 					$id = $_GET['id'];
 					
-					if($tdao->delTache($id) === true)
-					{
-						echo "<p>Tache Supprimee Avec Succes</p>";
-					}
-					else
-					{
-						echo "<p>Tache Non Trouvee</p>";
-					}
-				}
-			?>
+					$tdao->delTache($id);
+					header('Location: taches.php');
+					
+							}?>
 		</div>
 		
 		<?php include_once('foot.php'); ?>

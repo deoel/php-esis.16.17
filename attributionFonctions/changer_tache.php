@@ -55,15 +55,12 @@
 					<?php
 					if(isset($_POST['editTache']))
 					{
-						$tache = new Tache($_tache->getId(), mysql_real_escape_string($_POST['description']), $_POST['datedebut'], $_POST['datefin'], $_POST['idagent']);
-						if($tdao->editTache($tache) == true)
-						{
-							header('Location: taches.php');
-						}
-						else
-						{
-							echo "Erreur Lors De La Mise A Jour";
-						}
+						$tache = new Tache($_tache->getId(),$_POST['description'], $_POST['datedebut'], $_POST['datefin'], $_POST['idagent']);
+						$tdao->editTache($tache);
+					
+						header('Location: taches.php');
+					
+						
 					}
 				}
 			}

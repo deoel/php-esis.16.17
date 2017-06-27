@@ -20,24 +20,17 @@
 			
 			return $tabTache;
 		}
-		function delTache($id=null)
+		function delTache($id)
 		{
 			if($id != null)
 			{
-				$req = $this->bdd->query("DELETE FROM `tache` WHERE id='$id'");
-				if($req == TRUE)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+				$statment="DELETE FROM `tache` WHERE id=:id";
+				$req = $this->bdd->prepare($statment);
+				$req->execute(array(
+					'id'=>$id
+					));
 			}
-			else
-			{
-				return false;
-			}
+				
 		}
 		function getTache($id=null)
 		{
@@ -64,7 +57,11 @@
 		{
 			if($id != null)
 			{
-				$req = $this->bdd->query("SELECT count(*) FROM tache WHERE idagent='$id'");
+				$statment="SELECT count(*) FROM tache WHERE idagent=:id";
+				$req = $this->bdd->prepare($statment);
+				$req->execute(array(
+					'id'=>$id
+					));
 				$data = $req->fetchColumn();
 				$req->closeCursor();
 				return $data;
@@ -78,49 +75,35 @@
 		{
 			if($tache != null)
 			{
-				$description = $tache->getDescription();
-				$dateDebut = $tache->getDatedebut();
-				$dateFin = $tache->getDatefin();
-				$idAgent = $tache->getIdagent();
-				$req = $this->bdd->query("INSERT INTO tache (id, description, datedebut, datefin, idagent) VALUES (null, '$description', '$dateDebut', '$dateFin','$idAgent')");
-				if($req == TRUE)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			}
-			else
-			{
-				return false;
+				$statment="INSERT INTO tache (id, description, datedebut, datefin, idagent) VALUES (:id, :description, :datedebut, :datefin, :idagent)";
+				$req =$this->bdd->prepare($statment);
+				$req->execute(array(
+				'id'=>'null',
+				'description'=>$tache->getDescription(),
+				'datedebut'=> $tache->getDatedebut(),
+				'datefin'=>$tache->getDatefin(),
+				'idagent'=>$tache->getIdagent()
+				));
+				
 			}
 		}
-		function editTache($tache = null)
+		function editTache($tache)
 		{
 			if($tache != null)
 			{
-				$description = $tache->getDescription();
-				$dateDebut = $tache->getDatedebut();
-				$dateFin = $tache->getDatefin();
-				$idAgent = $tache->getIdAgent();
-				$id = $tache->getId();
-				$req = $this->bdd->query("UPDATE tache SET description='$description', datedebut='$dateDebut', datefin='$dateFin', idAgent='$idAgent' WHERE id='$id'");
-				if($req == TRUE)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			}
-			else
-			{
-				return false;
+				$statment="UPDATE  tache SET  description=:description, datedebut=:datedebut, datefin=:datefin, idagent=:idagent where id=:id";
+				$req =$this->bdd->prepare($statment);
+				$req->execute(array(
+				'id'=>$tache->getId(),
+				'description'=>$tache->getDescription(),
+				'datedebut'=> $tache->getDatedebut(),
+				'datefin'=>$tache->getDatefin(),
+				'idagent'=>$tache->getIdagent()
+				));
+				
 			}
 		}
+		
 	}
 
 ?>

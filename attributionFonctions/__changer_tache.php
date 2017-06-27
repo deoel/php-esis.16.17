@@ -1,15 +1,15 @@
 <?php
+ var_dump($_POST);
+if(isset($_POST['description'],$_POST['datedebut'],$_POST['datefin'],$_POST['id_ag']))
+{
+	require_once("tache.dao.php");
+	require_once("tache.class.php");
 
-	require_once('tache.class.php');
-	require_once('tache.dao.php');
-				
-	
-    $t = new Tache($_POST['id'], '', '', '', $_POST['idagent']);
-    
-    $tdao = new TacheDAO();
-    $tdao->updateTache($t);
-    
-    header('Location: taches.php');
+	$t=new Tache($_POST['id_ag'],$_POST['description'],$_POST['datedebut'],$_POST['datefin'],$_POST['id_ag']);
+	$in=new TacheDAO();
+	$s=$in->modifierTache($t);
+	header('Location: taches.php');
 
+}
 
 ?>

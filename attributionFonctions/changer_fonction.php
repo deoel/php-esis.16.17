@@ -10,9 +10,15 @@
 		
 		<div>
 			<h2>Changer la fonction de l'agent : <?php echo $_GET['nom']; ?></h2>
-			<form method="post" action="__changer_fonction.php">
+			<form method="post" action="changer_fonction.php">
 				<?php
-					echo '<input type="hidden" name="id" value="'.$_GET['id'].'" />';
+					 
+        if (isset($_GET['id']) and ! empty($_GET['id'])) {
+            echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
+        } else {
+            header('Location: index.php');
+        }
+        
 				?>
 				
 				<label for="idfonction">Fonction :</label>
@@ -30,6 +36,7 @@
 							<option value="'.$f->getId().'">'.$f->getIntitule().'</option>
 						';
 					}
+					
 				
 				?>
 				
@@ -37,7 +44,17 @@
 				<input type="submit" value="Changer" />
 			</form>
 		</div>
+			<?php 
+		if (isset($_GET['id']) and !empty($_GET['id'])) {
+			
+			
+		}else{
+			echo 'error somewhere';
+		}
+	 ?>
+	 <?php include_once('foot.php'); ?>
 		
 		<?php include_once('foot.php'); ?>
 	</body>
 </html>
+			

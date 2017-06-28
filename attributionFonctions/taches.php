@@ -71,7 +71,7 @@
 							<td>'.$t->getDescription().'</td>
 							<td> <strong>Du</strong> '.date("d",strtotime($t->getDatedebut())).'-'.date("m",strtotime($t->getDatedebut())).'-'.date("Y",strtotime($t->getDatedebut())).'</td>
 							<td> <strong>Du</strong> '.date("d",strtotime($t->getDatefin())).'-'.date("m",strtotime($t->getDatefin())).'-'.date("Y",strtotime($t->getDatefin())).'</td>
-						';
+						'; 
 						
 					foreach($la as $a) {
 						if($t->getIdAgent() == $a->getId()) {

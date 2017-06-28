@@ -40,6 +40,7 @@
 			$resultat = $req->fetch()[0];
 			return $resultat;
 		}
+	
 	}
 
 ?>

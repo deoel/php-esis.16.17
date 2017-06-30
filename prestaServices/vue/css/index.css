@@ -1,7 +1,7 @@
 header {
 	text-align: center;
 }
-label, input {
+label, input, select {
 	display: inline-block;
 	vertical-align: top;
 	margin-bottom: 6px;
@@ -9,12 +9,29 @@ label, input {
 label {
 	width: 150px;
 }
-input[type="text"] {
+input[type="text"], input[type="password"],  input[type="email"], select[id="genre"]{
 	width: 250px;
 	height: 30px;
 }
+select {
+	width: 250px;
+}
+select[multiple="multiple"] option {
+	height: 25px;
+	padding-top: 5px;
+	border-bottom: 1px solid #999;
+}
+textarea {
+	max-width: 250px;
+	min-width: 250px;
+	min-height: 100px;
+}
 input[type="submit"] {
 	margin-left: 155px;
+}
+input[value="valider"] {
+	margin-left: 160px;
+	margin-top: 6px;
 }
 table {
 	width: 100%;

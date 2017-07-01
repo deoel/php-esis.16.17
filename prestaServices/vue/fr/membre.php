@@ -15,7 +15,7 @@
 				<a href="index.php">Home</a> |
 				<a href="membre.php">Membre</a> |
 				<a href="service.php">Services</a>
-				<a href="en/member.php">EN</a>
+				<a href="../en/member.php">EN</a>
 			</p>
 		</header>
 		<div>
@@ -71,6 +71,6 @@
 			
 			?>
 		</div>
-		<?php include_once('foot.php'); ?>
+		<?php include_once('../foot.php'); ?>
 	</body>
 </html>

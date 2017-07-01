@@ -7,45 +7,45 @@
 	</head>
 	<body>
 		<header>
-			<h2>Bienvenue sur PrestaService</h2>
+			<h2>Welcome on PrestaService !</h2>
 			<p>
-				"Trouver la personne qu'il vous faut pour vous rendre un service"
+				"Find the right person to get you a service"
 			</p>
 			<p>
 				<a href="index.php">Home</a> |
-				<a href="membre.php">Membre</a> |
+				<a href="member.php">Memberhood</a> |
 				<a href="service.php">Services</a>
-				<a href="en/member.php">EN</a>
+				<a href="../membre.php">FR</a>
 			</p>
 		</header>
 		<div>
 			<form method="post" action="../controleur/__add_membre.php">
 				<fieldset>
-					<legend>Identités</legend>
-					<label for="nomcomplet">Nom complet : </label>
+					<legend>Identities</legend>
+					<label for="nomcomplet">Full name : </label>
 					<input type="text" name="nomcomplet" id="nomcomplet" required /><br />
-					<label for="genre">Genre : </label>
+					<label for="genre">Gender : </label>
 					<select name="genre" id="genre">
-						<option value="F">Femme</option>
-						<option value="M">Homme</option>
+						<option value="F">Woman</option>
+						<option value="M">Man</option>
 					</select><br />
-					<label for="tel">Téléphone : </label>
+					<label for="tel">Phone : </label>
 					<input type="text" name="tel" id="tel" required /><br />
 					<label for="email">Email : </label>
 					<input type="email" name="email" id="email" required /><br />
-					<label for="adressephysique">Adresse : </label>
+					<label for="adressephysique">Adress : </label>
 					<input type="text" name="adressephysique" id="adressephysique" required /><br />
-					<label for="statut">Statut : </label>
+					<label for="statut">Bio : </label>
 					<input type="text" name="statut" id="statut" required /><br />
-					<label for="pwd">Mot de passe : </label>
+					<label for="pwd">Password : </label>
 					<input type="password" name="pwd" id="pwd" required /><br />
-					<label for="pwdconf">Confirmer mot de passe : </label>
+					<label for="pwdconf">Confirm your password : </label>
 					<input type="password" name="pwdconf" id="pwdconf" required /><br />
-					<label for="competences">Competences : </label>
+					<label for="competences">Skills : </label>
 					<textarea name="competences" id="competences"></textarea><br />
 				</fieldset>
 				<fieldset>
-					<legend>Services prestés</legend>
+					<legend>Provided services</legend>
 					<label for="service">Services : </label>
 					<select name="service[]" id="service" multiple="multiple">
 						<?php
@@ -71,6 +71,6 @@
 			
 			?>
 		</div>
-		<?php include_once('foot.php'); ?>
+		<?php include_once('../foot.php'); ?>
 	</body>
 </html>

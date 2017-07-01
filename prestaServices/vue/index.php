@@ -18,5 +18,6 @@
 				<a href="en/index.php">EN</a>
 			</p>
 		</header>
+		<?php include_once('foot.php'); ?>
 	</body>
 </html>

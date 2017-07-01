@@ -16,7 +16,7 @@
 			}
 		?>
 		<?php include_once('head.php'); ?>
-		
+		<!-- On ne devrait pas avoir de formulaire dans ce fichier. Priere d'arranger ça @joelush -->
 		<div>
 			<h2>Attribuer une tâche à un Agent</h2>
 			<form method="post" action="__changer_tache.php">

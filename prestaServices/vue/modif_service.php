@@ -37,5 +37,6 @@
 				</fieldset>
 			</form>
 		</div>
+		<?php include_once('foot.php'); ?>
 	</body>
 </html>

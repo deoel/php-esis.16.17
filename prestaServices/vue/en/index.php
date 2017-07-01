@@ -13,10 +13,11 @@
 			</p>
 			<p>
 				<a href="index.php">Home</a> |
-				<a href="membre.php">Memberhood</a> |
+				<a href="member.php">Memberhood</a> |
 				<a href="service.php">Services</a>
 				<a href="../index.php">FR</a>
 			</p>
 		</header>
+		<?php include_once('../foot.php'); ?>
 	</body>
 </html>

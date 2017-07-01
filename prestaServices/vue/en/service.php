@@ -13,7 +13,7 @@
 			</p>
 			<p>
 				<a href="index.php">Home</a> |
-				<a href="membre.php">Memberhood</a> |
+				<a href="member.php">Memberhood</a> |
 				<a href="service.php">Services</a>
 				<a href="../service.php">FR</a>
 			</p>
@@ -37,5 +37,6 @@
 			
 			?>
 		</div>
+		<?php include_once('../foot.php'); ?>
 	</body>
 </html>
